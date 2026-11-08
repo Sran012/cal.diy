@@ -122,14 +122,7 @@ echo "BETTER_AUTH_URL=http://raspberrypi.local:3000" >> .env   # the URL people 
 docker compose up -d --build
 ```
 
-Or skip the build and pull the prebuilt image (amd64, arm64 and armv7), which the
-`Docker image` workflow publishes to GitHub's container registry on every push to `main`:
-
-```sh
-IMAGE=ghcr.io/smithmanny/cal.diy:latest docker compose up -d --no-build
-```
-
-To build a multi-arch image yourself:
+To build a multi-arch image instead:
 
 ```sh
 docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7 -t cal-diy .
